@@ -52,7 +52,7 @@ class JoulParser(Parser):
         ('right', UMINUS),
     )
 
-# Gom tất cả các lệnh thành một danh sách các AST Nodes
+    # Gom tất cả các lệnh thành một danh sách các AST Nodes
     @_('statement SEMI statements')
     def statements(self, p):
         return [p.statement] + p.statements
@@ -130,7 +130,7 @@ class JoulInterpreter:
         
         tag = node[0]
 
-        # CAC GIA TRI CO BAN
+        # -- CAC GIA TRI CO BAN --
         if tag == 'number':
             return node[1]
         if tag == 'string':
