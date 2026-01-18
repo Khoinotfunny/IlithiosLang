@@ -2,9 +2,15 @@
 # This is the main REPL for IthiliosPy (or short is Ithilios)
 
 import sys
+import os
 from Interpreter import *
 
 def run_file(filename):
+    file_extension = os.path.splitext(filename)[1]
+    if file_extension != ".ili":
+        print("Error: Only .ili files are supported.")
+        return
+
     with open(filename,"r") as f:
         code = f.read()
     
