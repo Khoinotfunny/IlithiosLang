@@ -11,7 +11,7 @@ def run_file(filename):
         print("Error: Only .ili files are supported.")
         return
 
-    with open(filename,"r") as f:
+    with open(filename,"r",encoding='utf-8') as f:
         code = f.read()
     
     lexer = JoulLexer()

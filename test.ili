@@ -1,5 +1,8 @@
-a = 100;
-b = 200;
-c = (a + b) * 5;
-print "Ket qua cua phep tinh la:";
-print c;
+func factorial(n) {
+    if (n == 0) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+print factorial(5); # Kết quả mong đợi: 120
