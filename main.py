@@ -23,20 +23,29 @@ def run_file(filename):
     interpreter.walk(ast)
 
 if __name__ == "__main__":
+    # Ithilios Language Version
+    lang_version = "alpha1.0.0"
+
     if len(sys.argv) > 1:
         run_file(sys.argv[1])
     else:
         lexer = JoulLexer()
         parser = JoulParser()
         interpreter = JoulInterpreter()
+
+        # Print Information
         print("Ithilios Language Intepreter")
+        print(f"Version: {lang_version}")
+
         while True:
             try:
                 text = input('input >> ')
                 if not text.strip(): continue
                 if text.lower() == "exit":
-                    print("Goodbye!")
+                    print("Goodbye! And See You Again!")
                     break
+                elif text.lower() == "clear":
+                    os.system('cls' if os.name == 'nt' else 'clear')
                 else:
                     tokens = lexer.tokenize(text)
                     ast = parser.parse(tokens)
